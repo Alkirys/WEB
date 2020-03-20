@@ -15,41 +15,44 @@
       <input class="form-control mr-sm-2" type="search" placeholder="How to build a house" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ask</button>
    </form>
-
+   <a class="navbar-brand" href="#">
+      <img src="./static/img/img.jpg" width="64" height="64" alt="" class="rounded-circle">
+   </a>
    <a class="navbar-brand ml-3">
-      <div class="row">
-         <div class="col text-primary"><u>log in</u></div>
-         <div class="col text-primary"><u>register</u></div>
-      </div>
+     <div class="row-1">nickname</div>
+     <div class="row">
+        <div class="col text-primary"><u>settings</u></div>
+        <div class="col text-primary"><u>log out</u></div>
+     </div>
    </a>
 </nav>
 
 
 
-<main role="main" class="container">
+<main role="main" class="container mt-5">
    
 <div class="row">
   
    <div class="col-8">
+   
+      <div class="ml-4">
+         <h3>Tag: first_tag</h3>
+      </div> 
   
-      <div class="row my-5">
-         <div class="alert alert-secondary mt-4 ml-auto">
+      <div class="alert alert-secondary mt-4 ml-auto">
       <div class="media">
       <picture>
          <img src="./static/img/img.jpg" class="row align-self-start mr-3" alt="...">
-         <span class="row mt-2 badge badge-outline-primary"><h6 class="text-primary">Rating:<br> 14</h6></span>
-         <div class="row ml-0 mb-2">
-            <button class="row btn btn-outline-info" type="submit">Like</button>
-         </div>
-         <div class="row ml-0 my-2">
-            <button class="row btn btn-outline-danger" type="submit">Dislike</button>
-         </div>
+         <button class="row btn btn-outline-info mt-3 mr-1" type="submit">Like</button>
+         <p class="row ml-1">15</p>
+         <button class="row btn btn-outline-danger mr-1" type="submit">Dislike</button>
+         <p class="row ml-3">1</p>
       </picture>
          <div class="media-body">
             <h5 class="mt-0"><u>Top-aligned media</u></h5>
                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus       viverra  turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
                <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-               <div class="row ">
+               <div class="row">
                   <p class="col-3 text-primary mt-2"><u>answer(5)</u></p>
                   <p class="col-1 mt-2">Tags:</p>
                   <p class="col-1 text-primary mr-3 mt-2"><u>first_tag</u></p>
@@ -58,32 +61,26 @@
          </div>
       </div>
       </div>
-      </div>
 
       <div class="alert alert-secondary mt-4 ml-auto">
       <div class="media">
       <picture>
          <img src="./static/img/img.jpg" class="row align-self-start mr-3" alt="...">
-         <span class="row mt-2 badge badge-outline-primary"><h6 class="text-primary">Rating:<br> 14</h6></span>
-         <div class="row ml-0 mb-2">
-            <button class="row btn btn-outline-info" type="submit">Like</button>
-         </div>
-         <div class="row ml-0 my-2">
-            <button class="row btn btn-outline-danger" type="submit">Dislike</button>
-         </div>
+         <button class="row btn btn-outline-info mt-3 mr-1" type="submit">Like</button>
+         <p class="row ml-1">15</p>
+         <button class="row btn btn-outline-danger mr-1" type="submit">Dislike</button>
+         <p class="row ml-3">1</p>
       </picture>
          <div class="media-body">
-            <h5><u>Top-aligned media</u></h5>
-            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus       viverra  turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </p>
-            <div class="form-group row">
-               <div class="form-check ml-5">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1">
-                     <label class="form-check-label" for="gridCheck1">
-                     Correct
-                     </label>
+            <h5 class="mt-0"><u>Top-aligned media</u></h5>
+               <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus       viverra  turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+               <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+               <div class="row">
+                  <p class="col-3 text-primary mt-2"><u>answer(5)</u></p>
+                  <p class="col-1 mt-2">Tags:</p>
+                  <p class="col-1 text-primary mr-3 mt-2"><u>first_tag</u></p>
+                  <p class="col-1 text-primary mt-2"><u>second_tag</u></p>
                </div>
-            </div>
          </div>
       </div>
       </div>
@@ -91,41 +88,32 @@
       
       <div class="alert alert-secondary mt-4 ml-auto">
       <div class="media">
-     <picture>
+      <picture>
          <img src="./static/img/img.jpg" class="row align-self-start mr-3" alt="...">
-         <span class="row mt-2 badge badge-outline-primary"><h6 class="text-primary">Rating:<br> 14</h6></span>
-         <div class="row ml-0 mb-2">
-            <button class="row btn btn-outline-info" type="submit">Like</button>
-         </div>
-         <div class="row ml-0 my-2">
-            <button class="row btn btn-outline-danger" type="submit">Dislike</button>
-         </div>
+         <button class="row btn btn-outline-info mt-3 mr-1" type="submit">Like</button>
+         <p class="row ml-1">15</p>
+         <button class="row btn btn-outline-danger mr-1" type="submit">Dislike</button>
+         <p class="row ml-3">1</p>
       </picture>
          <div class="media-body">
-            <h5><u>Top-aligned media</u></h5>
+            <h5 class="mt-0"><u>Top-aligned media</u></h5>
                <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus       viverra  turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-            <div class="form-group row">
-               <div class="form-check ml-5">
-                  <input class="form-check-input" type="checkbox" id="gridCheck2">
-                     <label class="form-check-label" for="gridCheck2">
-                     Correct
-                     </label>
+               <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+               <div class="row">
+                  <p class="col-3 text-primary mt-2"><u>answer(5)</u></p>
+                  <p class="col-1 mt-2">Tags:</p>
+                  <p class="col-1 text-primary mr-3 mt-2"><u>first_tag</u></p>
+                  <p class="col-1 text-primary mt-2"><u>second_tag</u></p>
                </div>
-            </div>
          </div>
       </div>
       </div>
-      
-      <div class="form-group mt-5">
-         <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Enter your answer"></textarea>
-      </div>
-      
-      <button class="btn btn-success btn-sm mr-1" type="submit">Answer</button>
-      
+
+
    </div>
     
-    
    <div class="col-3 ml-5 mt-5">
+
       <div class="sticky-top">
          <div class="row mb-5"></div>
 
