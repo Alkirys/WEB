@@ -1,0 +1,34 @@
+         {%load static%}
+   <div class="row my-2">
+      <div class="alert alert-secondary mt-4 ml-auto">
+      <div class="media">
+      <picture>
+         <img src="{% static '/img/img.jpg' %}" class="row align-self-start mr-3" alt="...">
+         <span class="row mt-2 badge badge-outline-primary"><h6 class="text-primary">Rating:<br> 14</h6></span>
+         <div class="row ml-0 mb-2">
+            <button class="row btn btn-outline-info" type="submit">Like</button>
+         </div>
+         <div class="row ml-0 my-2">
+            <button class="row btn btn-outline-danger" type="submit">Dislike</button>
+         </div>
+      </picture>
+         <div class="media-body">
+           
+               <a href="{% url 'question' qid=questions.id %}"><h5 class="mt-0"><u>{{ questions.title }}</u></h5></a>
+            
+               <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus       viverra  turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+               <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+               <div class="row ">
+                  <p class="col-3 text-primary mt-2"><u>answer(5)</u></p>
+                  <p class="col-1 mr-3 mt-2">Tags:</p>
+                  <div class="row">
+                  {% for tag in questions.tags %}
+                     <a href="{% url 'tag' tag_name=tag %}"><p class="text-primary mx-2 mt-2"><u>{{ tag }}</u></p><a/>
+                  {% endfor %}
+                  </div>
+               </div>
+         </div>
+      </div>
+      </div>
+   </div>
+
