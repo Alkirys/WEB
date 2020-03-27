@@ -16,6 +16,6 @@
 {% endblock content %}
 
 {% block pages_flipper %}
-   {% include 'inc/pages_flipper.html' %}
-{% endblock pages_flipper %}  
+   {% include 'inc/pages_flipper.html' with pages=questions %}
+{% endblock pages_flipper %}
 
