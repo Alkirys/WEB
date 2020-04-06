@@ -1,0 +1,33 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination mt-3 mb-5">
+      {% if pages.has_previous %}
+         <li class="page-item">
+            <a class="page-link" href="?page=1">First</a>
+         </li>
+         <li class="page-item text-primary"><a class="page-link">...</a></li>
+      {% endif %}
+
+      {% if pages.has_previous %}
+         <li class="page-item">
+            <a class="page-link" href="?page={{ pages.previous_page_number }}">{{ pages.previous_page_number }}</a>
+         </li>
+      {% endif %}
+
+      <li class="page-item">
+         <a class="page-link" href="?page={{ pages.number }}">{{ pages.number }}</a>
+      </li>
+
+      {% if pages.has_next %}
+         <li class="page-item">
+            <a class="page-link" href="?page={{ pages.next_page_number }}">{{ pages.next_page_number }}</a>
+         </li>
+      {% endif %}
+
+      {% if pages.has_next %}
+         <li class="page-item text-primary"><a class="page-link">...</a></li>
+         <li class="page-item">
+            <a class="page-link" href="?page={{ pages.paginator.count }}">Last</a>
+         </li>
+      {% endif %}
+  </ul>
+</nav>
