@@ -3,7 +3,7 @@ from app import models
 from random import choice
 from faker import Faker
 
-f = Faker()
+faker = Faker()
 
 
 class Command(BaseCommand):
@@ -13,43 +13,43 @@ class Command(BaseCommand):
         parser.add_argument('--questions', type=int)
         parser.add_argument('--tags', type=int)
 
-    def fill_authors(self, cnt):
+    def add_people(self, cnt):
         for i in range(cnt):
-            u = models.User(username=f.name())
+            u = models.User(username=faker.name())
             u.save()
             author = models.Author(
-                name=f.name()
+                name=faker.name()
             )
             author.save()
 
-    def fill_tags(self, cnt):
+    def add_tags(self, cnt):
         for i in range(cnt):
             tag = models.Tag(
-                title=f.sentence()[:128],
-                count=f.random_int(min=0, max=10)
+                title=faker.sentence()[:15],
+                count=faker.random_int(min=0, max=5)
             )
             tag.save()
 
-    def fill_questions(self, cnt):
+    def add_questions(self, cnt):
         for i in range(cnt):
-            q = models.Question(
+            question = models.Question(
                 author=choice(models.Author.objects.all()),
-                title=f.sentence()[:28],
-                content=f.sentence()[:46],
-            )
-            q.save()
-            for k in range(cnt):
-                answ = models.Answer(
-                    content=f.sentence()[:46],
+                title=faker.sentence()[:20],
+                content=faker.sentence()[:50])
+            question.save()
+            for j in range(cnt):
+                answer = models.Answer(
+                    content=faker.sentence()[:50],
                     author=choice(models.Author.objects.all()),
                 )
-                answ.question = q
-                answ.save()
-            q.save()
-            q.tags.add(choice(models.Tag.objects.all()))
-            q.save()
+                answer.question = question
+                answer.save()
+            question.save()
+            question.tags.add(choice(models.Tag.objects.all()))
+            question.save()
 
     def handle(self, *args, **options):
-        self.fill_authors(options.get('authors', 15))
-        self.fill_tags(options.get('tags', 15))
-        self.fill_questions(options.get('questions', 15))
+        self.add_people(options.get('authors', 25))
+        self.add_tags(options.get('tags', 25))
+        self.add_questions(options.get('questions', 25))
+
