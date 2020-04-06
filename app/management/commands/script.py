@@ -1,4 +1,5 @@
 from django.core.management.base import BaseCommand
+from django.contrib.auth.models import User
 from app import models
 from random import choice
 from faker import Faker
@@ -15,10 +16,12 @@ class Command(BaseCommand):
 
     def add_people(self, cnt):
         for i in range(cnt):
-            user = models.User(username=faker.name())
-            user.save()
+            u = User(username=faker.name())
+            u.save()
             author = models.Author(
-                name=faker.name()
+                user=u,
+                name=faker.name(),
+                password=faker.sentence()[:128],
             )
             author.save()
 

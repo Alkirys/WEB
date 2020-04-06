@@ -2,15 +2,9 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.contenttypes.fields import GenericForeignKey, GenericRelation
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.conf import settings
 from datetime import datetime
 from django.db.models import Sum
-
-
-class User(AbstractUser):
-    name = models.CharField(max_length=255, verbose_name=u"Никнейм", default="Nickname")
-
-    def __str__(self):
-        return self.name
 
 
 class TagManager(models.Manager):
@@ -29,7 +23,9 @@ class Tag(models.Model):
 
 
 class Author(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, default=u"Unknown", verbose_name=u"Имя")
+    password = models.CharField(max_length=128, verbose_name=u"Пароль")
 
     def __str__(self):
         return self.name
