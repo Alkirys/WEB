@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light bg-light">
+   <a class="navbar-brand ml-3" href="{% url 'all_questions' %}">AskSomething</a>
+   <form class="form-inline mr-auto">
+      <input class="form-control mr-sm-2" type="search" placeholder="How to build a house" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Ask</button>
+   </form>
+
+   <a class="navbar-brand ml-3">
+      <div class="row">
+         <a href="{% url 'login' %}"><div class="col text-primary"><u>log in</u></div></a>
+         <a href="{% url 'signup' %}"><div class="col text-primary"><u>register</u></div></a>
+      </div>
+   </a>
+</nav>
