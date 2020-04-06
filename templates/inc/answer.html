@@ -1,0 +1,29 @@
+   {% load static %}
+   
+   <div class="alert alert-secondary mt-4 ml-auto">
+      <div class="media">
+      <picture>
+         <img src="{% static 'img/img.jpg' %}" class="row align-self-start mr-3" alt="...">
+         <span class="row mt-2 badge badge-outline-primary"><h6 class="text-primary">Rating:<br>{{ questions.like.count }}</h6></span>
+         <div class="row ml-0 mb-2">
+            <button class="row btn btn-outline-info" type="submit">Like</button>
+         </div>
+         <div class="row ml-0 my-2">
+            <button class="row btn btn-outline-danger" type="submit">Dislike</button>
+         </div>
+      </picture>
+         <div class="media-body">
+            <h5><u>{{ answers.title }}</u></h5>
+            <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus       viverra  turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </p>
+            <div class="form-group row">
+               <div class="form-check ml-5">
+                  <input class="form-check-input" type="checkbox" id="{{ answers.title }}">
+                     <label class="form-check-label" for="{{ answers.title }}">
+                     Correct
+                     </label>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
