@@ -64,7 +64,7 @@ class QuestionManager(models.Manager):
         return self.filter(tags__title=tag)
 
     def most_popular(self):
-        return self.order_by('-like')
+        return self.order_by('-rate')
 
 
 class Question(models.Model):
@@ -74,7 +74,7 @@ class Question(models.Model):
     date = models.DateTimeField(default=datetime.now, verbose_name=u"Время создания вопроса")
     is_active = models.BooleanField(default=True, verbose_name=u"Опубликован ли вопрос")
     tags = models.ManyToManyField(Tag, blank=True)
-    like = GenericRelation(Vote, related_query_name=u'Question')
+    rate = GenericRelation(Vote, related_query_name=u'Question')
 
     objects = QuestionManager()
 
@@ -92,7 +92,7 @@ class Answer(models.Model):
     content = models.TextField(verbose_name=u"Текст ответа")
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     date = models.DateTimeField(default=datetime.now, verbose_name=u"Время ответа")
-    like = GenericRelation(Vote, related_query_name=u'Answer')
+    rate = GenericRelation(Vote, related_query_name=u'Answer')
 
     def __str__(self):
         return self.content
