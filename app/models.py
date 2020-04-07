@@ -33,7 +33,7 @@ class VoteManager(models.Manager):
 class Vote(models.Model):
     votes = ((1, 'like'), (-1, 'dislike'))
     vote = models.IntegerField(choices=votes, verbose_name=u"Голосование")
-    name = models.CharField(max_length=255, verbose_name=u"Пользователь")
+    author_id = models.IntegerField()
     content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
     object_id = models.IntegerField()
     content_obj = GenericForeignKey()
@@ -77,7 +77,7 @@ class Answer(models.Model):
     vote = GenericRelation(Vote, related_query_name=u'Answer')
 
     def __str__(self):
-        return f'Answer(pk={self.pk}) for question.id={self.question.pk}'
+        return f'Answer(pk={self.pk}) for question.id={self.question_id}'
 
     class Meta:
         verbose_name = u"Ответ"

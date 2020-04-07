@@ -9,7 +9,7 @@ faker = Faker()
 
 
 def add_vote(cnt, obj):
-    authors_set = models.Author.objects.all()
+    authors_ids = list(models.Author.objects.values_list('id', flat=True))
     vote_list = list()
     if obj == "Question":
         q_set = models.Question.objects
@@ -22,9 +22,8 @@ def add_vote(cnt, obj):
 
     for i in range(cnt*koef):
         for j in range(cnt-10):
-            author = choice(authors_set)
             vote = models.Vote(vote=random.choice([-1, 1]),
-                               name=author.user.username,
+                               author_id=choice(authors_ids),
                                content_type=obj_type,
                                object_id=q_set.all()[i].id,
                                )
