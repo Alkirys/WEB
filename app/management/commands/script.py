@@ -13,11 +13,11 @@ def add_vote(cnt, obj):
     vote_list = list()
     if obj == "Question":
         q_set = models.Question.objects
-        type = models.ContentType.objects.get_for_model(models.Question)
+        obj_type = models.ContentType.objects.get_for_model(models.Question)
         koef = 1
     else:
         q_set = models.Answer.objects
-        type = models.ContentType.objects.get_for_model(models.Answer)
+        obj_type = models.ContentType.objects.get_for_model(models.Answer)
         koef = cnt
 
     for i in range(cnt*koef):
@@ -25,7 +25,7 @@ def add_vote(cnt, obj):
             author = choice(authors_set)
             vote = models.Vote(vote=random.choice([-1, 1]),
                                name=author.user.username,
-                               content_type=type,
+                               content_type=obj_type,
                                object_id=q_set.all()[i].id,
                                )
             # vote.save()
@@ -35,9 +35,9 @@ def add_vote(cnt, obj):
 
     for i in range(cnt*koef):
         quest = q_set.filter(pk=i + 1)
-        votes_set = models.Vote.objects.filter(object_id=i + 1, content_type=type)
+        votes_set = models.Vote.objects.filter(object_id=i + 1, content_type=obj_type)
         for j in range(cnt-10):
-            quest[0].rate.add(votes_set[j])
+            quest[0].vote.add(votes_set[j])
 
 
 class Command(BaseCommand):

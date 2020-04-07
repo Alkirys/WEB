@@ -62,7 +62,7 @@ class Question(models.Model):
     date = models.DateTimeField(default=datetime.now, verbose_name=u"Время создания вопроса")
     is_active = models.BooleanField(default=True, verbose_name=u"Опубликован ли вопрос")
     tags = models.ManyToManyField(Tag, blank=True)
-    rate = GenericRelation(Vote, related_query_name=u'Question')
+    vote = GenericRelation(Vote, related_query_name=u'Question')
 
     objects = QuestionManager()
 
@@ -80,10 +80,10 @@ class Answer(models.Model):
     content = models.TextField(verbose_name=u"Текст ответа")
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     date = models.DateTimeField(default=datetime.now, verbose_name=u"Время ответа")
-    rate = GenericRelation(Vote, related_query_name=u'Answer')
+    vote = GenericRelation(Vote, related_query_name=u'Answer')
 
     def __str__(self):
-        return self.content
+        return f'Answer(pk={self.pk}) for question.id={self.question.pk}'
 
     class Meta:
         verbose_name = u"Ответ"
