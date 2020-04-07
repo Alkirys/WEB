@@ -7,16 +7,8 @@ from datetime import datetime
 from django.db.models import Sum
 
 
-class TagManager(models.Manager):
-    def popular_tags(self):
-        return self.order_by("-count")[:8]
-
-
 class Tag(models.Model):
     title = models.CharField(max_length=255, verbose_name=u"Тэг", unique=True, primary_key=True)
-    count = models.IntegerField(default=0, verbose_name=u"Число вопросов")
-
-    objects = TagManager()
 
     def __str__(self):
         return self.title
@@ -24,11 +16,11 @@ class Tag(models.Model):
 
 class Author(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, default=u"Unknown", verbose_name=u"Имя")
-    password = models.CharField(max_length=128, verbose_name=u"Пароль")
+    avatar = models.ImageField(upload_to="avatars/")
+    rating = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.user.name
 
 
 class VoteManager(models.Manager):
@@ -60,7 +52,7 @@ class QuestionManager(models.Manager):
         return self.filter(tags__title=tag)
 
     def most_popular(self):
-        return self.order_by('-rate')
+        return self.order_by('-author__rating')
 
 
 class Question(models.Model):

@@ -6,10 +6,11 @@
 
 {% block content %}
    {%include 'inc/question.html'%}
-   
-   {% for answers in answers%}
+    <div class="row mb-5"></div>
+
+   {% for answer in answers%}
       {%include 'inc/answer.html'%}
-   {%endfor%}   
+   {%endfor%}
    
    <div class="form-group mt-5">
       <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="Enter your answer"></textarea>
