@@ -29,12 +29,6 @@ class VoteManager(models.Manager):
     def get_rating(self):
         return self.get_queryset().aggregate(Sum('vote')).get('vote__sum') or 0
 
-    def likes(self):
-        return self.get_queryset().filter(vote__gt=0)
-
-    def dislikes(self):
-        return self.get_queryset().filter(vote__lt=0)
-
 
 class Vote(models.Model):
     votes = ((1, 'like'), (-1, 'dislike'))
